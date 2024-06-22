@@ -40,7 +40,7 @@ The application is deployed on Microsoft Azure and utilizes GitHub for version c
 ![Screenshot 4](Screenshots/Screenshot%202024-06-22%20111331.png)
 ![Screenshot 5](Screenshots/Screenshot%202024-06-22%20111345.png)
 ![Screenshot 6](Screenshots/Screenshot%202024-06-22%20111357.png)
-![Screenshot 7](Screenshots/Screenshot%202024-06-22%20111408.png)
+
 ![Screenshot 8](Screenshots/Screenshot%202024-06-22%20111435.png)
 ![Screenshot 9](Screenshots/Screenshot%202024-06-22%20111455.png)
 ![Screenshot 10](Screenshots/Screenshot%202024-06-22%20111509.png)
@@ -48,3 +48,4 @@ The application is deployed on Microsoft Azure and utilizes GitHub for version c
 ![Screenshot 12](Screenshots/Screenshot%202024-06-22%20111540.png)
 ![Screenshot 13](Screenshots/Screenshot%202024-06-22%20111557.png)
 ![Screenshot 14](Screenshots/Screenshot%202024-06-22%20111622.png)
+![Screenshot 7](Screenshots/Screenshot%202024-06-22%20111408.png)
