@@ -1,0 +1,125 @@
+﻿@model IEnumerable<Quiz.Models.Question>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Questions</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+    <style>
+        body {
+            padding-top: 56px;
+        }
+
+        .navbar {
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            margin-right: 5px;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            padding: 0.5em 1em;
+            margin-left: 0.5em;
+            border-radius: 0.3em;
+            border: 1px solid transparent;
+            background: #007bff;
+            color: white;
+        }
+
+            .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+                border: 1px solid #007bff;
+                background: white;
+                color: #007bff;
+            }
+
+        .dataTables_wrapper .dataTables_length select,
+        .dataTables_wrapper .dataTables_filter input {
+            border: 1px solid #ced4da;
+            border-radius: 0.3em;
+            padding: 0.5em;
+        }
+
+        .table td {
+            vertical-align: middle;
+        }
+
+        .action-buttons .btn {
+            margin-right: 0.5em;
+        }
+    </style>
+</head>
+<body>
+
+    <!--<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">-->
+        <!-- Your navbar content -->
+    <!--</nav>-->
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-right mb-3">
+                    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+                </div>
+                <table id="questionsTable" class="display responsive nowrap table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Question Text</th>
+                            <th>Question Type</th>
+                            <th>Correct Answer</th>
+                            <th>Category</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.QuestionText)</td>
+                                <td>@Html.DisplayFor(modelItem => item.QuestionType)</td>
+                                <td>@Html.DisplayFor(modelItem => item.CorrectAnswer)</td>
+                                <td>@Html.DisplayFor(modelItem => item.Category.CategoryName)</td>
+                                <td class="action-buttons">
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.QuestionID }, new { @class = "btn btn-warning btn-sm" })
+                                    @Html.ActionLink("Details", "Details", new { id = item.QuestionID }, new { @class = "btn btn-info btn-sm" })
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.QuestionID }, new { @class = "btn btn-danger btn-sm" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#questionsTable').DataTable({
+                responsive: true,
+                dom: 'Bfrtip',
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5',
+                    'print'
+                ]
+            });
+        });
+    </script>
+</body>
+</html>

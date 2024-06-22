@@ -1,0 +1,33 @@
+﻿@model Quiz.Models.Category
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4>Category Details</h4>
+                </div>
+                <div class="panel-body">
+                    <dl class="dl-horizontal">
+                        <dt class="col-md-3">
+                            @Html.DisplayNameFor(model => model.CategoryName)
+                        </dt>
+                        <dd class="col-md-9">
+                            @Html.DisplayFor(model => model.CategoryName)
+                        </dd>
+                    </dl>
+                </div>
+                <div class="panel-footer">
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.CategoryID }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+﻿@model Quiz.Models.SubmissionConfirmationViewModel
+
+@{
+    Layout = null;    
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submission Confirmation</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-success">@ViewBag.Message</div>
+    }
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Error</div>
+    }
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1 class="display-4">Submission Confirmation</h1>
+            <p class="lead">Thank you, @Model.Username, for completing the quiz!</p>
+            <p>Test Date: @Model.TestDate.ToShortDateString()</p>
+            <p>Test Time: @Model.TestTime.ToString("hh\\:mm\\:ss")</p>
+            <p>Would you like to retake the test?</p>
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <a href="@Url.Action("UserDashboard", "Login")" class="btn btn-primary btn-lg mr-2">Retake Test</a>
+                    <a href="@Url.Action("Logout", "Login")" class="btn btn-secondary btn-lg">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="QuizDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="EmailTemplates">
+          <Key>
+            <PropertyRef Name="TemplateID" />
+          </Key>
+          <Property Name="TemplateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TemplateName" Type="varchar" MaxLength="255" />
+          <Property Name="TemplateContent" Type="text" />
+        </EntityType>
+        <EntityType Name="Questions">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="QuestionText" Type="text" />
+          <Property Name="QuestionType" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="OptionA" Type="varchar" MaxLength="255" />
+          <Property Name="OptionB" Type="varchar" MaxLength="255" />
+          <Property Name="OptionC" Type="varchar" MaxLength="255" />
+          <Property Name="OptionD" Type="varchar" MaxLength="255" />
+          <Property Name="CorrectAnswer" Type="varchar" MaxLength="255" />
+          <Property Name="ImageURL" Type="varchar" MaxLength="255" />
+          <Property Name="OptionAImageData" Type="varbinary(max)" />
+          <Property Name="OptionBImageData" Type="varbinary(max)" />
+          <Property Name="OptionCImageData" Type="varbinary(max)" />
+          <Property Name="OptionDImageData" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="QuizSessions">
+          <Key>
+            <PropertyRef Name="SessionID" />
+          </Key>
+          <Property Name="SessionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="StartTime" Type="datetime" />
+          <Property Name="EndTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Results">
+          <Key>
+            <PropertyRef Name="ResultID" />
+          </Key>
+          <Property Name="ResultID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SessionID" Type="int" />
+          <Property Name="Score" Type="int" />
+          <Property Name="Username" Type="varchar" MaxLength="255" />
+          <Property Name="TestDate" Type="date" />
+          <Property Name="TestTime" Type="time" Precision="7" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserResponses">
+          <Key>
+            <PropertyRef Name="ResponseID" />
+          </Key>
+          <Property Name="ResponseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SessionID" Type="int" />
+          <Property Name="QuestionID" Type="int" />
+          <Property Name="UserAnswer" Type="varchar" MaxLength="255" />
+          <Property Name="IsAnswerChanged" Type="bit" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="255" />
+          <Property Name="RoleID" Type="int" />
+        </EntityType>
+        <Association Name="FK__Questions__Categ__2D27B809">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuizSessi__UserI__300424B4">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="QuizSessions" Type="Self.QuizSessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="QuizSessions">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Results__Session__36B12243">
+          <End Role="QuizSessions" Type="Self.QuizSessions" Multiplicity="0..1" />
+          <End Role="Results" Type="Self.Results" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuizSessions">
+              <PropertyRef Name="SessionID" />
+            </Principal>
+            <Dependent Role="Results">
+              <PropertyRef Name="SessionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserRespo__Quest__33D4B598">
+          <End Role="Questions" Type="Self.Questions" Multiplicity="0..1" />
+          <End Role="UserResponses" Type="Self.UserResponses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="UserResponses">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserRespo__Sessi__32E0915F">
+          <End Role="QuizSessions" Type="Self.QuizSessions" Multiplicity="0..1" />
+          <End Role="UserResponses" Type="Self.UserResponses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuizSessions">
+              <PropertyRef Name="SessionID" />
+            </Principal>
+            <Dependent Role="UserResponses">
+              <PropertyRef Name="SessionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__RoleID__29572725">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QuizDBModelStoreContainer">
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmailTemplates" EntityType="Self.EmailTemplates" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QuizSessions" EntityType="Self.QuizSessions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Results" EntityType="Self.Results" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserResponses" EntityType="Self.UserResponses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Questions__Categ__2D27B809" Association="Self.FK__Questions__Categ__2D27B809">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuizSessi__UserI__300424B4" Association="Self.FK__QuizSessi__UserI__300424B4">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="QuizSessions" EntitySet="QuizSessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Results__Session__36B12243" Association="Self.FK__Results__Session__36B12243">
+            <End Role="QuizSessions" EntitySet="QuizSessions" />
+            <End Role="Results" EntitySet="Results" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserRespo__Quest__33D4B598" Association="Self.FK__UserRespo__Quest__33D4B598">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="UserResponses" EntitySet="UserResponses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserRespo__Sessi__32E0915F" Association="Self.FK__UserRespo__Sessi__32E0915F">
+            <End Role="QuizSessions" EntitySet="QuizSessions" />
+            <End Role="UserResponses" EntitySet="UserResponses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__RoleID__29572725" Association="Self.FK__Users__RoleID__29572725">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QuizDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Questions" Relationship="Self.FK__Questions__Categ__2D27B809" FromRole="Categories" ToRole="Questions" />
+        </EntityType>
+        <EntityType Name="EmailTemplate">
+          <Key>
+            <PropertyRef Name="TemplateID" />
+          </Key>
+          <Property Name="TemplateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TemplateName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TemplateContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="QuestionText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="QuestionType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OptionA" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="OptionB" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="OptionC" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="OptionD" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CorrectAnswer" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ImageURL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Category" Relationship="Self.FK__Questions__Categ__2D27B809" FromRole="Questions" ToRole="Categories" />
+          <NavigationProperty Name="UserResponses" Relationship="Self.FK__UserRespo__Quest__33D4B598" FromRole="Questions" ToRole="UserResponses" />
+          <Property Name="OptionAImageData" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="OptionBImageData" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="OptionCImageData" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="OptionDImageData" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="QuizSession">
+          <Key>
+            <PropertyRef Name="SessionID" />
+          </Key>
+          <Property Name="SessionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="StartTime" Type="DateTime" Precision="3" />
+          <Property Name="EndTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="User" Relationship="Self.FK__QuizSessi__UserI__300424B4" FromRole="QuizSessions" ToRole="Users" />
+          <NavigationProperty Name="Results" Relationship="Self.FK__Results__Session__36B12243" FromRole="QuizSessions" ToRole="Results" />
+          <NavigationProperty Name="UserResponses" Relationship="Self.FK__UserRespo__Sessi__32E0915F" FromRole="QuizSessions" ToRole="UserResponses" />
+        </EntityType>
+        <EntityType Name="Result">
+          <Key>
+            <PropertyRef Name="ResultID" />
+          </Key>
+          <Property Name="ResultID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SessionID" Type="Int32" />
+          <Property Name="Score" Type="Int32" />
+          <NavigationProperty Name="QuizSession" Relationship="Self.FK__Results__Session__36B12243" FromRole="Results" ToRole="QuizSessions" />
+          <Property Name="Username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="TestDate" Type="DateTime" Precision="0" />
+          <Property Name="TestTime" Type="Time" Precision="7" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Users__RoleID__29572725" FromRole="Roles" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="UserRespons">
+          <Key>
+            <PropertyRef Name="ResponseID" />
+          </Key>
+          <Property Name="ResponseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SessionID" Type="Int32" />
+          <Property Name="QuestionID" Type="Int32" />
+          <Property Name="UserAnswer" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="IsAnswerChanged" Type="Boolean" />
+          <NavigationProperty Name="Question" Relationship="Self.FK__UserRespo__Quest__33D4B598" FromRole="UserResponses" ToRole="Questions" />
+          <NavigationProperty Name="QuizSession" Relationship="Self.FK__UserRespo__Sessi__32E0915F" FromRole="UserResponses" ToRole="QuizSessions" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="RoleID" Type="Int32" />
+          <NavigationProperty Name="QuizSessions" Relationship="Self.FK__QuizSessi__UserI__300424B4" FromRole="Users" ToRole="QuizSessions" />
+          <NavigationProperty Name="Role" Relationship="Self.FK__Users__RoleID__29572725" FromRole="Users" ToRole="Roles" />
+        </EntityType>
+        <Association Name="FK__Questions__Categ__2D27B809">
+          <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Questions" Type="Self.Question" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Questions">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserRespo__Quest__33D4B598">
+          <End Role="Questions" Type="Self.Question" Multiplicity="0..1" />
+          <End Role="UserResponses" Type="Self.UserRespons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="UserResponses">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__QuizSessi__UserI__300424B4">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="QuizSessions" Type="Self.QuizSession" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="QuizSessions">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Results__Session__36B12243">
+          <End Role="QuizSessions" Type="Self.QuizSession" Multiplicity="0..1" />
+          <End Role="Results" Type="Self.Result" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuizSessions">
+              <PropertyRef Name="SessionID" />
+            </Principal>
+            <Dependent Role="Results">
+              <PropertyRef Name="SessionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UserRespo__Sessi__32E0915F">
+          <End Role="QuizSessions" Type="Self.QuizSession" Multiplicity="0..1" />
+          <End Role="UserResponses" Type="Self.UserRespons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QuizSessions">
+              <PropertyRef Name="SessionID" />
+            </Principal>
+            <Dependent Role="UserResponses">
+              <PropertyRef Name="SessionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Users__RoleID__29572725">
+          <End Role="Roles" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QuizDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="EmailTemplates" EntityType="Self.EmailTemplate" />
+          <EntitySet Name="Questions" EntityType="Self.Question" />
+          <EntitySet Name="QuizSessions" EntityType="Self.QuizSession" />
+          <EntitySet Name="Results" EntityType="Self.Result" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="UserResponses" EntityType="Self.UserRespons" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK__Questions__Categ__2D27B809" Association="Self.FK__Questions__Categ__2D27B809">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Questions" EntitySet="Questions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserRespo__Quest__33D4B598" Association="Self.FK__UserRespo__Quest__33D4B598">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="UserResponses" EntitySet="UserResponses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__QuizSessi__UserI__300424B4" Association="Self.FK__QuizSessi__UserI__300424B4">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="QuizSessions" EntitySet="QuizSessions" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Results__Session__36B12243" Association="Self.FK__Results__Session__36B12243">
+            <End Role="QuizSessions" EntitySet="QuizSessions" />
+            <End Role="Results" EntitySet="Results" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UserRespo__Sessi__32E0915F" Association="Self.FK__UserRespo__Sessi__32E0915F">
+            <End Role="QuizSessions" EntitySet="QuizSessions" />
+            <End Role="UserResponses" EntitySet="UserResponses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__RoleID__29572725" Association="Self.FK__Users__RoleID__29572725">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QuizDBModelStoreContainer" CdmEntityContainer="QuizDBEntities">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="QuizDBModel.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailTemplates">
+            <EntityTypeMapping TypeName="QuizDBModel.EmailTemplate">
+              <MappingFragment StoreEntitySet="EmailTemplates">
+                <ScalarProperty Name="TemplateID" ColumnName="TemplateID" />
+                <ScalarProperty Name="TemplateName" ColumnName="TemplateName" />
+                <ScalarProperty Name="TemplateContent" ColumnName="TemplateContent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questions">
+            <EntityTypeMapping TypeName="QuizDBModel.Question">
+              <MappingFragment StoreEntitySet="Questions">
+                <ScalarProperty Name="OptionDImageData" ColumnName="OptionDImageData" />
+                <ScalarProperty Name="OptionCImageData" ColumnName="OptionCImageData" />
+                <ScalarProperty Name="OptionBImageData" ColumnName="OptionBImageData" />
+                <ScalarProperty Name="OptionAImageData" ColumnName="OptionAImageData" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+                <ScalarProperty Name="QuestionType" ColumnName="QuestionType" />
+                <ScalarProperty Name="OptionA" ColumnName="OptionA" />
+                <ScalarProperty Name="OptionB" ColumnName="OptionB" />
+                <ScalarProperty Name="OptionC" ColumnName="OptionC" />
+                <ScalarProperty Name="OptionD" ColumnName="OptionD" />
+                <ScalarProperty Name="CorrectAnswer" ColumnName="CorrectAnswer" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuizSessions">
+            <EntityTypeMapping TypeName="QuizDBModel.QuizSession">
+              <MappingFragment StoreEntitySet="QuizSessions">
+                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Results">
+            <EntityTypeMapping TypeName="QuizDBModel.Result">
+              <MappingFragment StoreEntitySet="Results">
+                <ScalarProperty Name="TestTime" ColumnName="TestTime" />
+                <ScalarProperty Name="TestDate" ColumnName="TestDate" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="ResultID" ColumnName="ResultID" />
+                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="QuizDBModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserResponses">
+            <EntityTypeMapping TypeName="QuizDBModel.UserRespons">
+              <MappingFragment StoreEntitySet="UserResponses">
+                <ScalarProperty Name="ResponseID" ColumnName="ResponseID" />
+                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="UserAnswer" ColumnName="UserAnswer" />
+                <ScalarProperty Name="IsAnswerChanged" ColumnName="IsAnswerChanged" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="QuizDBModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,51 @@
+﻿@model Quiz.Models.Result
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Result</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Score)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Score)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TestDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TestTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TestTime)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ResultID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

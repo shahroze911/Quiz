@@ -1,0 +1,210 @@
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\Quiz.dll.config
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\Quiz.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\Quiz.pdb
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\csc.exe
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\csc.exe.config
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\csc.rsp
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\csi.exe
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\csi.exe.config
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\csi.rsp
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\Microsoft.Managed.Core.targets
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.AppContext.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.Collections.Immutable.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.Console.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.Globalization.Calendars.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.IO.Compression.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.IO.Compression.ZipFile.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.IO.FileSystem.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.Net.Http.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.Net.Sockets.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.Reflection.Metadata.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.Threading.Tasks.Extensions.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.ValueTuple.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.Xml.XmlDocument.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.Xml.XPath.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\vbc.exe
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\vbc.exe.config
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\vbc.rsp
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\VBCSCompiler.exe
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\roslyn\VBCSCompiler.exe.config
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\Antlr3.Runtime.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\EntityFramework.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\EntityFramework.SqlServer.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\Microsoft.AspNetCore.Http.Abstractions.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\Microsoft.AspNetCore.Http.Features.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\Microsoft.AspNetCore.Mvc.Abstractions.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\Microsoft.AspNetCore.Routing.Abstractions.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\Microsoft.Extensions.Primitives.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\Microsoft.Net.Http.Headers.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\Microsoft.Web.Infrastructure.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\Newtonsoft.Json.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\System.Buffers.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\System.Memory.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\System.Numerics.Vectors.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\System.Runtime.CompilerServices.Unsafe.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\System.Text.Encodings.Web.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\System.Web.Helpers.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\System.Web.Mvc.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\System.Web.Optimization.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\System.Web.Razor.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\System.Web.WebPages.Deployment.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\System.Web.WebPages.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\System.Web.WebPages.Razor.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\WebGrease.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\EntityFramework.xml
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\EntityFramework.SqlServer.xml
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\Microsoft.AspNetCore.Http.Abstractions.xml
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\Microsoft.AspNetCore.Http.Features.xml
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\Microsoft.AspNetCore.Mvc.Abstractions.xml
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\Microsoft.AspNetCore.Routing.Abstractions.xml
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\Microsoft.Extensions.Primitives.xml
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\Microsoft.Net.Http.Headers.xml
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\System.Buffers.xml
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\System.Memory.xml
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\System.Numerics.Vectors.xml
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\System.Runtime.CompilerServices.Unsafe.xml
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\System.Text.Encodings.Web.xml
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\System.Web.Helpers.xml
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\System.Web.Mvc.xml
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\System.Web.Optimization.xml
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\System.Web.Razor.xml
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\System.Web.WebPages.xml
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\System.Web.WebPages.Deployment.xml
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\System.Web.WebPages.Razor.xml
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\Newtonsoft.Json.xml
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\Antlr3.Runtime.pdb
+D:\FreeLancing\Tasks\.Net Task\Quiz\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\FreeLancing\Tasks\.Net Task\Quiz\obj\Debug\Quiz.csproj.AssemblyReference.cache
+D:\FreeLancing\Tasks\.Net Task\Quiz\obj\Debug\Quiz.csproj.CoreCompileInputs.cache
+D:\FreeLancing\Tasks\.Net Task\Quiz\obj\Debug\Quiz.csproj.CopyComplete
+D:\FreeLancing\Tasks\.Net Task\Quiz\obj\Debug\Quiz.dll
+D:\FreeLancing\Tasks\.Net Task\Quiz\obj\Debug\Quiz.pdb
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\Quiz.dll.config
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\Quiz.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\Quiz.pdb
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\csc.exe
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\csc.exe.config
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\csc.rsp
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\csi.exe
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\csi.exe.config
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\csi.rsp
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\Microsoft.CodeAnalysis.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\Microsoft.CSharp.Core.targets
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\Microsoft.Managed.Core.targets
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\Microsoft.VisualBasic.Core.targets
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\Microsoft.Win32.Primitives.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.AppContext.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.Collections.Immutable.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.Console.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.Diagnostics.StackTrace.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.Globalization.Calendars.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.IO.Compression.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.IO.Compression.ZipFile.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.IO.FileSystem.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.IO.FileSystem.Primitives.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.Net.Http.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.Net.Sockets.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.Reflection.Metadata.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.Security.Cryptography.Encoding.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.Security.Cryptography.Primitives.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.Text.Encoding.CodePages.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.Threading.Tasks.Extensions.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.ValueTuple.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.Xml.ReaderWriter.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.Xml.XmlDocument.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.Xml.XPath.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\System.Xml.XPath.XDocument.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\vbc.exe
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\vbc.exe.config
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\vbc.rsp
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\VBCSCompiler.exe
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\roslyn\VBCSCompiler.exe.config
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\Antlr3.Runtime.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\EntityFramework.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\EntityFramework.SqlServer.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\Microsoft.AspNetCore.Http.Abstractions.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\Microsoft.AspNetCore.Http.Features.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\Microsoft.AspNetCore.Mvc.Abstractions.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\Microsoft.AspNetCore.Routing.Abstractions.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\Microsoft.Extensions.Primitives.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\Microsoft.Net.Http.Headers.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\Microsoft.Web.Infrastructure.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\Newtonsoft.Json.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\System.Buffers.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\System.Memory.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\System.Numerics.Vectors.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\System.Runtime.CompilerServices.Unsafe.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\System.Text.Encodings.Web.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\System.Web.Helpers.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\System.Web.Mvc.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\System.Web.Optimization.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\System.Web.Razor.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\System.Web.WebPages.Deployment.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\System.Web.WebPages.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\System.Web.WebPages.Razor.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\WebGrease.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\EntityFramework.xml
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\EntityFramework.SqlServer.xml
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\Microsoft.AspNetCore.Http.Abstractions.xml
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\Microsoft.AspNetCore.Http.Features.xml
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\Microsoft.AspNetCore.Mvc.Abstractions.xml
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\Microsoft.AspNetCore.Routing.Abstractions.xml
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\Microsoft.Extensions.Primitives.xml
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\Microsoft.Net.Http.Headers.xml
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\System.Buffers.xml
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\System.Memory.xml
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\System.Numerics.Vectors.xml
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\System.Runtime.CompilerServices.Unsafe.xml
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\System.Text.Encodings.Web.xml
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\System.Web.Helpers.xml
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\System.Web.Mvc.xml
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\System.Web.Optimization.xml
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\System.Web.Razor.xml
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\System.Web.WebPages.xml
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\System.Web.WebPages.Deployment.xml
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\System.Web.WebPages.Razor.xml
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\Newtonsoft.Json.xml
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\Antlr3.Runtime.pdb
+I:\Freelancing\Tasks\Quiz-Final\Quiz\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+I:\Freelancing\Tasks\Quiz-Final\Quiz\obj\Debug\Quiz.csproj.AssemblyReference.cache
+I:\Freelancing\Tasks\Quiz-Final\Quiz\obj\Debug\Quiz.csproj.CoreCompileInputs.cache
+I:\Freelancing\Tasks\Quiz-Final\Quiz\obj\Debug\Quiz.csproj.CopyComplete
+I:\Freelancing\Tasks\Quiz-Final\Quiz\obj\Debug\Quiz.dll
+I:\Freelancing\Tasks\Quiz-Final\Quiz\obj\Debug\Quiz.pdb

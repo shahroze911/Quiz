@@ -1,0 +1,56 @@
+﻿@model Quiz.Models.Question
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Question</h4>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>@Html.DisplayNameFor(model => model.QuestionText)</dt>
+                        <dd>@Html.DisplayFor(model => model.QuestionText)</dd>
+
+                        <dt>@Html.DisplayNameFor(model => model.QuestionType)</dt>
+                        <dd>@Html.DisplayFor(model => model.QuestionType)</dd>
+
+                        <dt>@Html.DisplayNameFor(model => model.OptionA)</dt>
+                        <dd>@Html.DisplayFor(model => model.OptionA)</dd>
+
+                        <dt>@Html.DisplayNameFor(model => model.OptionB)</dt>
+                        <dd>@Html.DisplayFor(model => model.OptionB)</dd>
+
+                        <dt>@Html.DisplayNameFor(model => model.OptionC)</dt>
+                        <dd>@Html.DisplayFor(model => model.OptionC)</dd>
+
+                        <dt>@Html.DisplayNameFor(model => model.OptionD)</dt>
+                        <dd>@Html.DisplayFor(model => model.OptionD)</dd>
+
+                        <dt>@Html.DisplayNameFor(model => model.CorrectAnswer)</dt>
+                        <dd>@Html.DisplayFor(model => model.CorrectAnswer)</dd>
+                        
+                        <dt>@Html.DisplayNameFor(model => model.Category.CategoryName)</dt>
+                        <dd>@Html.DisplayFor(model => model.Category.CategoryName)</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-8">
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.QuestionID }, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Back to List", "Index", new { @class = "btn btn-secondary ml-2" })
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+﻿@model Quiz.Models.AdminDashboardInsightsViewModel
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.Title = "Admin Dashboard";
+}
+
+<!-- Include Insights Partial View -->
+@Html.Partial("_InsightsPartial", Model)
+
+<!-- Main Content -->
+<div class="container-fluid">
+    <div class="row">
+    </div>
+</div>
+
+
+<!-- Scripts -->
+@section scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Get data from the ViewBag or ViewModel
+            var totalQuestions = @Model.TotalQuestions;
+            var totalUsers = @Model.TotalUsers;
+            var totalResults = @Model.TotalResults;
+            var averageScore = @Model.AverageScore;
+
+            // Use the data to create charts or perform other operations as needed
+        });
+    </script>
+}
+
+

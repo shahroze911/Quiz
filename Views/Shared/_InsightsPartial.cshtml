@@ -1,0 +1,89 @@
+﻿<div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-3 col-md-6 mb-3">
+            <a href="@Url.Action("Index", "Questions")" class="text-decoration-none">
+                <div class="card text-white bg-primary">
+                    <div class="card-body">
+                        <div class="card-title">Total Questions</div>
+                        <h3 class="card-text">@Model.TotalQuestions</h3>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+            <a href="@Url.Action("Index", "Users")" class="text-decoration-none">
+                <div class="card text-white bg-success">
+                    <div class="card-body">
+                        <div class="card-title">Total Users</div>
+                        <h3 class="card-text">@Model.TotalUsers</h3>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+            <a href="@Url.Action("Index", "Results")" class="text-decoration-none">
+                <div class="card text-white bg-warning">
+                    <div class="card-body">
+                        <div class="card-title">Total Results</div>
+                        <h3 class="card-text">@Model.TotalResults</h3>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+            <div class="card text-white bg-danger">
+                <div class="card-body">
+                    <div class="card-title">Average Score</div>
+                    <h3 class="card-text">@Model.AverageScore.ToString("0.00")</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Date-wise Stats Table -->
+            <h4 class="mb-3">Date-wise Quiz Statistics</h4>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Quiz Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.DateWiseStats)
+                    {
+                        <tr>
+                            <td>@item.Date.ToShortDateString()</td>
+                            <td>@item.QuizCount</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <!-- Month-wise Stats Table -->
+            <h4 class="mb-3">Month-wise Quiz Statistics</h4>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Month</th>
+                        <th scope="col">Quiz Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.MonthWiseStats)
+                    {
+                        <tr>
+                            <td>@item.Month</td>
+                            <td>@item.QuizCount</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

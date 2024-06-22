@@ -1,0 +1,332 @@
+﻿@model List<Quiz.Models.Question>
+@{
+    
+
+    Layout = null;
+    var username = ViewBag.Username; // Retrieve the username from ViewBag
+
+    var groupedQuestions = Model.GroupBy(q => q.CategoryID).ToList();
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        /* Add custom styles here */
+        .card {
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+            .card:hover {
+                transform: translateY(-5px);
+            }
+
+        .form-check-label {
+            cursor: pointer;
+        }
+
+        .write-in-answer {
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        }
+
+            .write-in-answer:focus {
+                border-color: #80bdff;
+                box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+            }
+
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        #timerDisplay {
+            position: fixed;
+            top: 40px; /* Adjust this value as needed */
+            left: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+            <span class="navbar-brand">Welcome, @username!</span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Logout", "Login")">Logout</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+
+        <div class="jumbotron text-center">
+            <h1 class="display-6">User Dashboard</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <div id="details" class="alert alert-info" role="alert">
+                            <p>
+                                This test has a total of 32 questions. If the 30-minute time limit is reached, any unanswered question will be marked as incorrect. The test consists of the following categories:
+                            </p>
+                            <ul>
+                                <li>13 questions - Verbal Skills</li>
+                                <li>4 questions - Spatial Skills</li>
+                                <li>14 questions - Math Skills</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" id="startButton" class="btn btn-primary">Start Quiz</button>
+        </div>
+
+
+        <div class="progress mb-4 fixed-top" style="z-index: 1000;">
+            <div id="progressBar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+        </div>
+
+        <div id="timerDisplay" class="text-center fixed-top" style="display: none; z-index: 1000;">
+            <h3>Time Remaining: <span id="timer"></span></h3>
+        </div>
+
+        <div id="questionContainer">
+            <form id="questionForm" method="post" action="@Url.Action("SubmitAnswers", "Login")">
+                @Html.AntiForgeryToken() <!-- Add anti-forgery token -->
+                <input type="hidden" name="username" value="@ViewBag.Username">
+                @foreach (var group in groupedQuestions)
+                {
+                    var categoryName = group.FirstOrDefault()?.Category?.CategoryName; // Retrieve category name
+                    var categoryQuestions = group.ToList();
+                    <div class="category" style="display:none;">
+                        <h2>@categoryName</h2>
+                        @for (var i = 0; i < categoryQuestions.Count; i++)
+                        {
+                            var question = categoryQuestions[i];
+                            <div class="question" style="display:none;">
+                                <input type="hidden" name="questionId" value="@question.QuestionID">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Question @(i + 1)</h5>
+                                        <p class="card-text">@question.QuestionText</p>
+                                        <div class="form-group">
+                                            @if (question.QuestionType == "Multiple Choice")
+                                            {
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" id="optionA@(question.QuestionID)" name="answer[@question.QuestionID]" value="OptionA|@question.QuestionID">
+                                                    <label class="form-check-label" for="optionA@(question.QuestionID)">@question.OptionA</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" id="optionB@(question.QuestionID)" name="answer[@question.QuestionID]" value="OptionB|@question.QuestionID">
+                                                    <label class="form-check-label" for="optionB@(question.QuestionID)">@question.OptionB</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" id="optionC@(question.QuestionID)" name="answer[@question.QuestionID]" value="OptionC|@question.QuestionID">
+                                                    <label class="form-check-label" for="optionC@(question.QuestionID)">@question.OptionC</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" id="optionD@(question.QuestionID)" name="answer[@question.QuestionID]" value="OptionD|@question.QuestionID">
+                                                    <label class="form-check-label" for="optionD@(question.QuestionID)">@question.OptionD</label>
+                                                </div>
+                                                <!-- Other options omitted for brevity -->
+                                            }
+                                            else if (question.QuestionType == "Write-in")
+                                            {
+                                                <input type="text" class="form-control write-in-answer" data-question-id="@question.QuestionID" name="answer">
+                                            }
+                                            else if (question.QuestionType == "Image")
+                                            {
+                                        <div class="form-group">
+                                            
+                                            <div class="form-check" style="display: inline-block; margin-right: 10px;">
+                                                <input class="form-check-input" type="radio" id="optionA@(question.QuestionID)" name="answer[@question.QuestionID]" value="OptionA|@question.QuestionID">
+                                                <label class="form-check-label" for="optionA@(question.QuestionID)">
+                                                    <img src="data:image/png;base64,@Convert.ToBase64String(question.OptionAImageData)" alt="Option A" style="max-width: 100px; max-height: 100px;">
+                                                </label>
+                                            </div>
+                                            <div class="form-check" style="display: inline-block; margin-right: 10px;">
+                                                <input class="form-check-input" type="radio" id="optionB@(question.QuestionID)" name="answer[@question.QuestionID]" value="OptionB|@question.QuestionID">
+                                                <label class="form-check-label" for="optionB@(question.QuestionID)">
+                                                    <img src="data:image/png;base64,@Convert.ToBase64String(question.OptionBImageData)" alt="Option B" style="max-width: 100px; max-height: 100px;">
+                                                </label>
+                                            </div>
+                                            <div class="form-check" style="display: inline-block; margin-right: 10px;">
+                                                <input class="form-check-input" type="radio" id="optionC@(question.QuestionID)" name="answer[@question.QuestionID]" value="OptionC|@question.QuestionID">
+                                                <label class="form-check-label" for="optionC@(question.QuestionID)">
+                                                    <img src="data:image/png;base64,@Convert.ToBase64String(question.OptionCImageData)" alt="Option C" style="max-width: 100px; max-height: 100px;">
+                                                </label>
+                                            </div>
+                                            <div class="form-check" style="display: inline-block; margin-right: 10px;">
+                                                <input class="form-check-input" type="radio" id="optionD@(question.QuestionID)" name="answer[@question.QuestionID]" value="OptionD|@question.QuestionID">
+                                                <label class="form-check-label" for="optionD@(question.QuestionID)">
+                                                    <img src="data:image/png;base64,@Convert.ToBase64String(question.OptionDImageData)" alt="Option D" style="max-width: 100px; max-height: 100px;">
+                                                </label>
+                                            </div>
+                                            <!-- Add options B, C, and D similarly -->
+                                        </div>
+                                            }
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+                <div class="row mt-3">
+                    <div class="col text-center">
+                        <button type="button" id="prevButton" class="btn btn-secondary mr-2">Previous</button>
+                        <button type="button" id="nextButton" class="btn btn-primary mr-2">Next</button>
+                        <button type="submit" id="submitButton" class="btn btn-primary" style="display: none;">Submit Answers</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Bootstrap JS and jQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+        <script>
+$(document).ready(function () {
+    var timer;
+    var totalQuestions = @Model.Count; // Get the total number of questions from the model
+    var currentCategory = 0;
+    var currentQuestion = 0;
+
+    $("#prevButton").hide();
+    $("#nextButton").hide();
+
+    $("#startButton").click(function () {
+        $("#startButton").hide(); // Hide the start button
+        $("#details").hide(); // Hide the start button
+        $("#prevButton").show(); // Show the previous button
+        $("#nextButton").show(); // Show the next button
+        $(".category:first").show(); // Show first category
+        $(".category:first .question:first").show(); // Show first question in first category
+        $("#timerDisplay").show(); // Show timer display
+        startTimer(30 * 60); // 30 minutes
+    });
+
+    $("#nextButton").click(function () {
+        $(".category").eq(currentCategory).find(".question").eq(currentQuestion).hide(); // Hide current question
+        currentQuestion++;
+        if (currentQuestion >= $(".category").eq(currentCategory).find(".question").length) {
+            currentQuestion = 0;
+            if (currentCategory < $(".category").length - 1) {
+                currentCategory++;
+            } else {
+                currentCategory = $(".category").length - 1;
+            }
+        }
+        $(".category").hide(); // Hide all categories
+        $(".category").eq(currentCategory).show(); // Show current category
+        $(".category").eq(currentCategory).find(".question").eq(currentQuestion).show(); // Show current question
+        updateButtonsVisibility();
+    });
+
+    $("#prevButton").click(function () {
+        $(".category").eq(currentCategory).find(".question").eq(currentQuestion).hide(); // Hide current question
+        currentQuestion--;
+        if (currentQuestion < 0) {
+            currentCategory--;
+            if (currentCategory < 0) {
+                currentCategory = 0;
+                currentQuestion = 0;
+            } else {
+                currentQuestion = $(".category").eq(currentCategory).find(".question").length - 1; // Set to last question index of previous category
+            }
+        }
+        $(".category").hide(); // Hide all categories
+        $(".category").eq(currentCategory).show(); // Show current category
+        $(".category").eq(currentCategory).find(".question").eq(currentQuestion).show(); // Show current question
+        updateButtonsVisibility();
+    });
+
+    function updateButtonsVisibility() {
+        $("#prevButton").prop("disabled", currentCategory === 0 && currentQuestion === 0);
+        $("#nextButton").prop("disabled", currentCategory === $(".category").length - 1 && currentQuestion === $(".category:last .question").length - 1);
+        $("#submitButton").toggle(currentCategory === $(".category").length - 1 && currentQuestion === $(".category:last .question").length - 1);
+    }
+
+    function startTimer(duration) {
+        var timerDisplay = $('#timer');
+        var timerValue = duration, minutes, seconds;
+
+        timer = setInterval(function () {
+            minutes = parseInt(timerValue / 60, 10);
+            seconds = parseInt(timerValue % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            timerDisplay.text(minutes + ":" + seconds);
+
+            if (--timerValue < 0) {
+                clearInterval(timer);
+                submitQuestions(); // Call function to submit questions
+            }
+        }, 1000);
+    }
+
+    function submitQuestions() {
+        // Submit form containing user's answers
+        $("#questionForm").submit();
+    }
+
+    // Function to update progress bar
+    function updateProgressBar() {
+        // Count the number of answered questions
+        var answeredCount = $('input[type="radio"]:checked').length + $('.write-in-answer').filter(function () { return this.value.trim() !== ''; }).length;
+
+        // Calculate progress percentage
+        var progressPercentage = Math.round((answeredCount / totalQuestions) * 100);
+
+        // Update progress bar width and text
+        $('#progressBar').css('width', progressPercentage + '%').attr('aria-valuenow', progressPercentage).text(progressPercentage + '%');
+    }
+
+    // Call updateProgressBar function on change of radio buttons and write-in answers
+    $('input[type="radio"], .write-in-answer').change(function () {
+        updateProgressBar();
+    });
+
+    function resetForm() {
+        // Clear radio buttons and text inputs
+        $("input[type='radio']").prop("checked", false);
+        $(".write-in-answer").val("");
+        // Reset progress bar
+        updateProgressBar();
+    }
+
+    // Call resetForm function when the page loads
+    resetForm();
+
+    // Check if form has been submitted
+    if (@Html.Raw(Json.Encode(ViewBag.FormSubmitted))) {
+        // If form has been submitted, reset the form elements
+        resetForm();
+    }
+});
+        </script>
+</body>
+</html>

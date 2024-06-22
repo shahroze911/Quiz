@@ -1,0 +1,210 @@
+﻿@model Quiz.Models.Question
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create", "Questions", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.CategoryID, "Category", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CategoryID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.QuestionText, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.QuestionText, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.QuestionText, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.QuestionType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.QuestionType, new SelectList(new[]
+                          {
+                    new SelectListItem { Text = "Multiple Choice", Value = "Multiple Choice" },
+                    new SelectListItem { Text = "Write-in", Value = "Write-in" },
+                    new SelectListItem { Text = "Image", Value = "Image" }
+                }, "Value", "Text"), htmlAttributes: new { @class = "form-control", id = "QuestionType" })
+                @Html.ValidationMessageFor(model => model.QuestionType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div id="options" class="form-group row" style="display: none;">
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.OptionA, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.OptionA, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OptionA, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.OptionB, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.OptionB, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OptionB, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.OptionC, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.OptionC, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OptionC, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-3">
+                @Html.LabelFor(model => model.OptionD, htmlAttributes: new { @class = "control-label" })
+                @Html.EditorFor(model => model.OptionD, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.OptionD, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div id="imageOptions" class="form-group row" style="display: none;">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.Label("Option A Image", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        <input type="file" id="optionAImage" name="optionAImage" accept="image/*" class="form-control" />
+                        <span id="optionAUploaded" class="text-success" style="display: none;">Uploaded successfully!</span>
+                        <span id="optionAError" class="text-danger" style="display: none;">Failed to upload image!</span>
+                        @Html.ValidationMessageFor(model => model.OptionAImageData, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.Label("Option B Image", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        <input type="file" id="optionBImage" name="optionBImage" accept="image/*" class="form-control" />
+                        <span id="optionBUploaded" class="text-success" style="display: none;">Uploaded successfully!</span>
+                        <span id="optionBError" class="text-danger" style="display: none;">Failed to upload image!</span>
+                        @Html.ValidationMessageFor(model => model.OptionBImageData, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.Label("Option C Image", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        <input type="file" id="optionCImage" name="optionCImage" accept="image/*" class="form-control" />
+                        <span id="optionCUploaded" class="text-success" style="display: none;">Uploaded successfully!</span>
+                        <span id="optionCError" class="text-danger" style="display: none;">Failed to upload image!</span>
+                        @Html.ValidationMessageFor(model => model.OptionCImageData, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.Label("Option D Image", htmlAttributes: new { @class = "control-label col-md-4" })
+                    <div class="col-md-8">
+                        <input type="file" id="optionDImage" name="optionDImage" accept="image/*" class="form-control" />
+                        <span id="optionDUploaded" class="text-success" style="display: none;">Uploaded successfully!</span>
+                        <span id="optionDError" class="text-danger" style="display: none;">Failed to upload image!</span>
+                        @Html.ValidationMessageFor(model => model.OptionDImageData, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="correctAnswerDropdown" class="form-group row" style="display: none;">
+            @Html.LabelFor(model => model.CorrectAnswer, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CorrectAnswer", new SelectList(new[] { "OptionA", "OptionB", "OptionC", "OptionD" }), "Select correct answer", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CorrectAnswer, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div id="writeInAnswer" class="form-group row" style="display: none;">
+            @Html.LabelFor(model => model.CorrectAnswer, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.CorrectAnswer, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CorrectAnswer, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $(document).ready(function () {
+            function handleImageUpload(optionInputId, uploadedId, errorId) {
+                $(optionInputId).change(function () {
+                    var file = this.files[0];
+                    var formData = new FormData();
+                    formData.append($(optionInputId).attr('name'), file);
+                    formData.append('__RequestVerificationToken', $('input[name="__RequestVerificationToken"]').val());
+
+                    $.ajax({
+                        url: '@Url.Action("Create", "Questions")',
+                        type: 'POST',
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        success: function (result) {
+                            console.log('Upload successful:', result);
+                            $(uploadedId).show().text('Uploaded successfully!');
+                            $(errorId).hide();
+                        },
+                        error: function (xhr, status, error) {
+                            console.error('Upload error:', error);
+                            $(uploadedId).hide();
+                            $(errorId).show().text('Failed to upload image!');
+                        }
+                    });
+                });
+            }
+
+            handleImageUpload('#optionAImage', '#optionAUploaded', '#optionAError');
+            handleImageUpload('#optionBImage', '#optionBUploaded', '#optionBError');
+            handleImageUpload('#optionCImage', '#optionCUploaded', '#optionCError');
+            handleImageUpload('#optionDImage', '#optionDUploaded', '#optionDError');
+
+            function toggleSections(selectedType) {
+                if (selectedType === "Multiple Choice") {
+                    $("#options").show();
+                    $("#correctAnswerDropdown").show();
+                    $("#writeInAnswer").hide();
+                    $("#imageOptions").hide();
+                } else if (selectedType === "Write-in") {
+                    $("#options").hide();
+                    $("#correctAnswerDropdown").hide();
+                    $("#writeInAnswer").show();
+                    $("#imageOptions").hide();
+                } else if (selectedType === "Image") {
+                    $("#options").hide();
+                    $("#correctAnswerDropdown").show();
+                    $("#writeInAnswer").hide();
+                    $("#imageOptions").show();
+                }
+            }
+
+            $("#QuestionType").change(function () {
+                var selectedType = $(this).val();
+                toggleSections(selectedType);
+            });
+
+            var initialType = $("#QuestionType").val();
+            toggleSections(initialType);
+        });
+    </script>
+}

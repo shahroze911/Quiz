@@ -1,0 +1,138 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Dashboard</title>
+    <!-- Add your CSS link(s) for styling here -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Add your custom CSS styles here */
+        body {
+            padding-top: 56px; /* Adjust based on your navbar height */
+        }
+
+        /* Custom style to prevent content overlap with navbar */
+        #content-area {
+            margin-top: 20px; /* Same as the height of the navbar */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Include Navbar Partial View -->
+    @Html.Partial("_Navbar")
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Content Area -->
+                <div id="content-area">
+                    @RenderBody() <!-- This will render the content of each individual page -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JavaScript and jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
+
+    <!-- Custom Script -->
+    <script>
+        function loadManageQuestions() {
+            // Replace 'your-controller-name' with the actual controller name
+            $.ajax({
+                url: '/Questions/Index', // Use the correct controller and action method here
+                type: 'GET',
+                success: function (result) {
+                    $('#content-area').html(result);
+                },
+                error: function () {
+                    alert('Error occurred while loading Manage Questions.');
+                }
+            });
+        }
+        function loadManageUsers() {
+            // Replace 'your-controller-name' with the actual controller name
+            $.ajax({
+                url: '/Users/Index', // Use the correct controller and action method here
+                type: 'GET',
+                success: function (result) {
+                    $('#content-area').html(result);
+                },
+                error: function () {
+                    alert('Error occurred while loading Manage Questions.');
+                }
+            });
+        }
+        function loadManageCategories() {
+            // Replace 'your-controller-name' with the actual controller name
+            $.ajax({
+                url: '/Categories/Index', // Use the correct controller and action method here
+                type: 'GET',
+                success: function (result) {
+                    $('#content-area').html(result);
+                },
+                error: function () {
+                    alert('Error occurred while loading Manage Questions.');
+                }
+            });
+        }
+        function loadManageResults() {
+            // Replace 'your-controller-name' with the actual controller name
+            $.ajax({
+                url: '/Results/Index', // Use the correct controller and action method here
+                type: 'GET',
+                success: function (result) {
+                    $('#content-area').html(result);
+                },
+                error: function () {
+                    alert('Error occurred while loading Manage Questions.');
+                }
+            });
+        }
+        function uploadImage(input, createActionUrl) {
+        var file = input.files[0];
+        var formData = new FormData();
+        formData.append('optionAImage', file);
+
+        $.ajax({
+            url: createActionUrl, // Use the provided URL for the Create action
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (result) {
+                console.log('Upload successful:', result);
+                window.location.href = '@Url.Action("Index", "Questions")'; // Redirect to the index page
+            },
+            error: function (xhr, status, error) {
+                console.error('Upload error:', error);
+                $('#optionAUploaded').hide();
+                $('#optionAError').show();
+            }
+        });
+    }
+    </script>
+    @RenderSection("scripts", required: false)
+
+</body>
+
+</html>
