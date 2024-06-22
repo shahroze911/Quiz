@@ -18,9 +18,6 @@ This is a web-based quiz management system built with ASP.NET MVC. It allows use
 - **Frontend**: HTML, CSS, JavaScript, jQuery
 - **Database**: SQL Server
 
-## Deployment
-
-The application is deployed on Microsoft Azure and utilizes GitHub for version control.
 
 ## User Roles
 
