@@ -1,6 +1,6 @@
 # quiz-management-system
 
-1. ![Screenshot 1](Screenshots/screenshot1.png)
+1. ![Screenshot 1](Screenshots/Screenshot 2024-06-22 110923.png)
 2. ![Screenshot 2](Screenshots/screenshot2.png)
 3. ![Screenshot 3](Screenshots/screenshot3.png)
 4. ![Screenshot 4](Screenshots/screenshot4.png)
